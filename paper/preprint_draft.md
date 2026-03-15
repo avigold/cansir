@@ -30,7 +30,11 @@ This yielded 794 protective genes and 1,335 risk genes mapped via FinnGen's near
 
 We performed Gene Ontology (Biological Process, Molecular Function, Cellular Component), Reactome, KEGG, and WikiPathways enrichment analysis separately on the protective and risk gene sets using g:Profiler with g:SCS multiple testing correction and the full FinnGen gene background.
 
-The protective gene set yielded 254 significantly enriched terms; the risk gene set yielded 567. Of these, only 199 terms (32.0%) were shared between the two sets, while 55 terms were uniquely enriched in protective genes and 368 were uniquely enriched in risk genes (**Figure 1**).
+The protective gene set yielded 254 significantly enriched terms; the risk gene set yielded 567. Of these, only 199 terms (32.0%) were shared between the two sets, while 55 terms were uniquely enriched in protective genes and 368 were uniquely enriched in risk genes (Figure 1).
+
+![Figure 1](figures/Figure1_enrichment_dotplot.png)
+
+**Figure 1. Pathway enrichment of cancer-protective versus cancer-risk loci.** Side-by-side dot plots showing the top enriched pathways for protective genes (left, blue) and risk genes (right, red) from FinnGen R12 (N=500,348). Dot size reflects the number of genes; colour intensity reflects −log₁₀(P-value). Broad, uninformative GO root terms are excluded.
 
 Fisher's exact test on the 2×2 contingency table of pathway membership (enriched in protective / enriched in risk / enriched in both / enriched in neither) yielded P = 8.57×10⁻²⁴, demonstrating that the two gene sets enrich highly non-random and distinct pathway profiles.
 
@@ -46,9 +50,17 @@ The 55 pathways uniquely enriched in protective genes clustered into three biolo
 
 **Growth suppression and apoptosis.** "Negative regulation of cell population proliferation" (P = 2.6×10⁻³), "positive regulation of programmed cell death" (P = 4.9×10⁻²), the Hippo signalling pathway (P = 2.4×10⁻²), and TGF-β signalling (P = 3.6×10⁻²) were uniquely protective. These pathways actively halt proliferation and eliminate damaged cells.
 
-In contrast, the 368 pathways uniquely enriched in risk genes centred on transcriptional regulation (RNA polymerase II transcription, chromatin binding), DNA metabolism and replication, kinase signalling cascades, and organelle organisation — the cellular machinery that cancer hijacks for uncontrolled growth (**Figure 2**).
+In contrast, the 368 pathways uniquely enriched in risk genes centred on transcriptional regulation (RNA polymerase II transcription, chromatin binding), DNA metabolism and replication, kinase signalling cascades, and organelle organisation — the cellular machinery that cancer hijacks for uncontrolled growth (Figure 2).
+
+![Figure 2](figures/Figure2_unique_pathways.png)
+
+**Figure 2. Biologically distinct pathways unique to cancer protection versus cancer risk.** Horizontal bar charts showing the top pathways enriched exclusively in protective genes (left, blue) and exclusively in risk genes (right, red). Protective-unique pathways cluster into xenobiotic detoxification, cell adhesion/tissue integrity, and growth suppression/apoptosis. Risk-unique pathways cluster into transcriptional regulation, DNA metabolism, and signalling cascades.
 
 This separation reveals that protective variants operate *upstream* of carcinogenesis (preventing initiation through detoxification, tissue integrity, and cell death), while risk variants operate *downstream* (enabling progression through proliferative and transcriptional machinery).
+
+![Figure 3](figures/Figure3_divergence.png)
+
+**Figure 3. Pathway enrichment divergence between protective and risk gene sets.** Butterfly chart showing the most divergent pathways. Blue bars (right) indicate pathways more enriched in protective genes; red bars (left) indicate pathways more enriched in risk genes. The asymmetry demonstrates that protective biology is focused (fewer, more specific pathways) while risk biology is diffuse (more numerous pathways).
 
 ### Pathway distinction is robust across significance thresholds
 
@@ -61,6 +73,10 @@ To assess robustness, we repeated the enrichment analysis at three significance 
 | P < 5×10⁻⁶ | 2,428 | 3,384 | 0.495 |
 
 **Table 1.** Pathway enrichment overlap across significance thresholds. The protective/risk distinction is strongest at genome-wide significance and remains significant at all thresholds tested.
+
+![Figure 4](figures/Figure4_source_breakdown.png)
+
+**Figure 4. Per-source pathway breakdown.** Grouped bar chart showing protective-only, shared, and risk-only enriched terms across annotation sources (GO:BP, GO:CC, GO:MF, KEGG, Reactome, WikiPathways). KEGG and Reactome show near-complete separation between protective and risk pathway sets.
 
 ### Cross-population replication in BioBank Japan
 
@@ -79,6 +95,10 @@ The internal protective/risk distinction replicated in BBJ: Fisher's exact P = 4
 | Shared pathways | 199 | — |
 
 **Table 2.** Pathway enrichment comparison in FinnGen and BioBank Japan. Both cohorts show significant distinction between protective and risk pathway profiles.
+
+![Figure 5](figures/Figure5_venn.png)
+
+**Figure 5. Enriched pathway overlap.** Venn diagram showing the overlap between pathways enriched in protective genes and those enriched in risk genes in FinnGen R12. Jaccard similarity = 0.320. The asymmetry (55 protective-only versus 368 risk-only) indicates that risk biology is more diffuse while protective biology is concentrated in fewer, more specific pathways.
 
 ### Polygenic Protection Score is distinct from inverted Polygenic Risk Score
 
@@ -168,14 +188,3 @@ FinnGen Release 12 summary statistics are publicly available at https://r12.finn
 12. Dethlefsen, C. et al. Exercise-induced catecholamines activate the Hippo tumor suppressor pathway to reduce risks of breast cancer development. *Cancer Res.* **77**, 4894–4904 (2017).
 13. Drew, D. A., Cao, Y. & Chan, A. T. Aspirin and colorectal cancer: the promise of precision chemoprevention. *Nat. Rev. Cancer* **16**, 173–186 (2016).
 
-## Figure legends
-
-**Figure 1. Pathway enrichment of cancer-protective versus cancer-risk loci.** Side-by-side dot plots showing the top enriched pathways for protective genes (left, blue) and risk genes (right, red) from FinnGen R12 (N=500,348). Dot size reflects the number of genes; colour intensity reflects −log₁₀(P-value). Broad, uninformative GO root terms are excluded. Venn diagram (inset) shows the overlap of enriched term sets (Jaccard = 0.320).
-
-**Figure 2. Biologically distinct pathways unique to cancer protection versus cancer risk.** Horizontal bar charts showing the top pathways enriched exclusively in protective genes (left, blue) and exclusively in risk genes (right, red). Protective-unique pathways cluster into xenobiotic detoxification, cell adhesion/tissue integrity, and growth suppression/apoptosis. Risk-unique pathways cluster into transcriptional regulation, DNA metabolism, and signalling cascades.
-
-**Figure 3. Pathway enrichment divergence between protective and risk gene sets.** Butterfly chart showing the most divergent pathways. Blue bars (right) indicate pathways more enriched in protective genes; red bars (left) indicate pathways more enriched in risk genes. The asymmetry demonstrates that protective biology is focused (fewer, more specific pathways) while risk biology is diffuse (more numerous pathways).
-
-**Figure 4. Per-source pathway breakdown.** Grouped bar chart showing protective-only, shared, and risk-only enriched terms across annotation sources (GO:BP, GO:CC, GO:MF, KEGG, Reactome, WikiPathways). KEGG and Reactome show near-complete separation between protective and risk pathway sets.
-
-**Figure 5. Sensitivity analysis.** Jaccard similarity between protective and risk pathway sets across three P-value thresholds. The distinction is strongest at the most stringent threshold (P < 5×10⁻⁸) and gradually increases in overlap at more lenient thresholds, consistent with weaker signals introducing biological noise.
