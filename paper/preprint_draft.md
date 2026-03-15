@@ -2,9 +2,11 @@
 
 **Avram Score**
 
+Independent researcher. Correspondence: ascore@gmail.com
+
 ## Abstract
 
-Cancer genetics research has predominantly focused on identifying risk-increasing variants, implicitly treating genetic protection as the absence of risk. Here we show that cancer-protective and cancer-risk genetic variants operate through fundamentally distinct biological pathways. Analysing genome-wide association summary statistics from FinnGen (N=500,348) across 19 cancer endpoints, we separated significant variants (P < 5×10⁻⁶) into protective (β < 0; 794 genes) and risk (β > 0; 1,335 genes) sets after LD clumping. Pathway enrichment analysis revealed that protective genes uniquely enrich for xenobiotic detoxification (cytochrome P450 metabolism, glucuronidation), cell adhesion and tissue integrity (adherens junctions), and positive regulation of apoptosis — mechanisms that prevent cancer initiation. Risk genes uniquely enrich for transcriptional regulation, DNA replication, and kinase signalling — mechanisms that cancer co-opts for progression. The two pathway profiles are significantly distinct (Fisher's exact P = 8.57×10⁻²⁴; Jaccard similarity = 0.320). This finding replicates in an independent East Asian cohort (BioBank Japan, 7 cancer types; Fisher's P = 4.12×10⁻⁹; Jaccard = 0.425). At the variant level, a Polygenic Protection Score (PPS) constructed from protective variants shares virtually no variants with a standard Polygenic Risk Score (Jaccard = 0.005) and only 21.7% of genes, with gene-level contributions anti-correlated (Spearman ρ = −0.306, P = 7.7×10⁻¹⁰⁴). These results demonstrate that cancer protection has its own genetic architecture, distinct from the inverse of cancer risk, with implications for risk stratification and chemoprevention.
+Cancer genetics research has predominantly focused on identifying risk-increasing variants, implicitly treating genetic protection as the absence of risk. Here we show that cancer-protective and cancer-risk genetic variants operate through fundamentally distinct biological pathways. Analysing genome-wide association summary statistics from FinnGen (N=500,348) across 19 cancer endpoints, we separated significant variants (P < 5 x 10^-6) into protective (beta < 0; 794 genes) and risk (beta > 0; 1,335 genes) sets after LD clumping. Pathway enrichment analysis revealed that protective genes uniquely enrich for xenobiotic detoxification (cytochrome P450 metabolism, glucuronidation), cell adhesion and tissue integrity (adherens junctions), and positive regulation of apoptosis — mechanisms that prevent cancer initiation. Risk genes uniquely enrich for transcriptional regulation, DNA replication, and kinase signalling — mechanisms that cancer co-opts for progression. The two pathway profiles are significantly distinct (Fisher's exact P = 8.57 x 10^-24; Jaccard similarity = 0.320). This finding replicates in an independent East Asian cohort (BioBank Japan, 7 cancer types; Fisher's P = 4.12 x 10^-9; Jaccard = 0.425). At the variant level, a Polygenic Protection Score (PPS) constructed from protective variants shares virtually no variants with a standard Polygenic Risk Score (Jaccard = 0.005) and only 21.7% of genes, with gene-level contributions anti-correlated (Spearman rho = -0.306, P = 7.7 x 10^-104). These results demonstrate that cancer protection has its own genetic architecture, distinct from the inverse of cancer risk, with implications for risk stratification and chemoprevention.
 
 ## Introduction
 
@@ -20,9 +22,9 @@ Here we test whether cancer-protective and cancer-risk genetic variants enrich f
 
 ### Separating protective and risk variant sets
 
-We obtained GWAS summary statistics from FinnGen Release 12 (N=500,348 Finnish individuals) for 19 cancer endpoints, including breast, prostate, colorectal, lung, melanoma, and 14 additional cancer types (**Supplementary Table 1**). Each endpoint used the EXALLC phenotype definition, where controls exclude individuals with any cancer diagnosis, providing a clean case-control contrast.
+We obtained GWAS summary statistics from FinnGen Release 12 (N=500,348 Finnish individuals) for 19 cancer endpoints, including breast, prostate, colorectal, lung, melanoma, and 14 additional cancer types (Supplementary Table 1). Each endpoint used the EXALLC phenotype definition, where controls exclude individuals with any cancer diagnosis, providing a clean case-control contrast.
 
-After filtering for suggestive significance (P < 5×10⁻⁶), we identified 80,143 significant variant-cancer associations across all endpoints. Distance-based LD clumping (500 kb window) reduced this to 2,340 independent loci. We classified each locus by the direction of its effect: negative β (protective; the alternate allele is associated with lower cancer incidence in the FinnGen cohort) or positive β (risk; associated with higher incidence).
+After filtering for suggestive significance (P < 5 x 10^-6), we identified 80,143 significant variant-cancer associations across all endpoints. Distance-based LD clumping (500 kb window) reduced this to 2,340 independent loci. We classified each locus by the direction of its effect: negative beta (protective; the alternate allele is associated with lower cancer incidence in the FinnGen cohort) or positive beta (risk; associated with higher incidence).
 
 This yielded 794 protective genes and 1,335 risk genes mapped via FinnGen's nearest-gene annotation. We extracted the set of all 53,354 genes appearing anywhere in the FinnGen summary statistics (before significance filtering) as a background set for enrichment analysis.
 
@@ -34,21 +36,21 @@ The protective gene set yielded 254 significantly enriched terms; the risk gene 
 
 ![Figure 1](figures/Figure1_enrichment_dotplot.png)
 
-**Figure 1. Pathway enrichment of cancer-protective versus cancer-risk loci.** Side-by-side dot plots showing the top enriched pathways for protective genes (left, blue) and risk genes (right, red) from FinnGen R12 (N=500,348). Dot size reflects the number of genes; colour intensity reflects −log₁₀(P-value). Broad, uninformative GO root terms are excluded.
+**Figure 1. Pathway enrichment of cancer-protective versus cancer-risk loci.** Side-by-side dot plots showing the top enriched pathways for protective genes (left, blue) and risk genes (right, red) from FinnGen R12 (N=500,348). Dot size reflects the number of genes; colour intensity reflects -log10(P-value). Broad, uninformative GO root terms are excluded.
 
-Fisher's exact test on the 2×2 contingency table of pathway membership (enriched in protective / enriched in risk / enriched in both / enriched in neither) yielded P = 8.57×10⁻²⁴, demonstrating that the two gene sets enrich highly non-random and distinct pathway profiles.
+Fisher's exact test on the 2x2 contingency table of pathway membership (enriched in protective / enriched in risk / enriched in both / enriched in neither) yielded P = 8.57 x 10^-24, demonstrating that the two gene sets enrich for distinct, non-overlapping pathway profiles.
 
-The Jaccard similarity between the two enriched term sets was 0.320, indicating that approximately two-thirds of enriched pathways are unique to one set or the other. For terms enriched in both sets, the Spearman rank correlation of enrichment P-values was ρ = 0.709 (P = 1.01×10⁻³¹), indicating that shared pathways (primarily core cancer biology such as cell cycle regulation and DNA damage response) show consistent significance in both directions.
+The Jaccard similarity between the two enriched term sets was 0.320, indicating that approximately two-thirds of enriched pathways are unique to one set or the other. For terms enriched in both sets, the Spearman rank correlation of enrichment P-values was rho = 0.709 (P = 1.01 x 10^-31), indicating that shared pathways (primarily core cancer biology such as cell cycle regulation and DNA damage response) show consistent significance in both directions.
 
 ### The biology of cancer protection is distinct from cancer risk
 
-The 55 pathways uniquely enriched in protective genes clustered into three biological themes (**Figure 2**):
+The 55 pathways uniquely enriched in protective genes clustered into three biological themes (Figure 2):
 
-**Xenobiotic detoxification.** KEGG pathways for "Metabolism of xenobiotics by cytochrome P450" (P = 2.6×10⁻³), "Chemical carcinogenesis — DNA adducts" (P = 1.2×10⁻³), and "Drug metabolism — cytochrome P450" (P = 9.3×10⁻³) were exclusively enriched in protective genes, along with the GO term "glucuronosyltransferase activity" (P = 7.7×10⁻³). These pathways represent Phase I and Phase II detoxification enzymes that neutralise environmental carcinogens before they damage DNA.
+**Xenobiotic detoxification.** KEGG pathways for "Metabolism of xenobiotics by cytochrome P450" (P = 2.6 x 10^-3), "Chemical carcinogenesis — DNA adducts" (P = 1.2 x 10^-3), and "Drug metabolism — cytochrome P450" (P = 9.3 x 10^-3) were exclusively enriched in protective genes, along with the GO term "glucuronosyltransferase activity" (P = 7.7 x 10^-3). These pathways encompass both Phase I enzymes (CYP450-mediated oxidation of xenobiotics) and Phase II enzymes (glucuronidation-mediated conjugation for excretion) that collectively neutralise environmental carcinogens before they damage DNA.
 
-**Cell adhesion and tissue integrity.** GO Cellular Component terms for "anchoring junction" (P = 4.1×10⁻⁴) and "adherens junction" (P = 5.3×10⁻⁴), along with "actin cytoskeleton" (P = 5.9×10⁻⁴), were exclusively protective. These structures maintain epithelial barrier integrity and prevent the tissue disorganisation that precedes metastasis.
+**Cell adhesion and tissue integrity.** GO Cellular Component terms for "anchoring junction" (P = 4.1 x 10^-4) and "adherens junction" (P = 5.3 x 10^-4), along with "actin cytoskeleton" (P = 5.9 x 10^-4), were exclusively protective. These structures maintain epithelial barrier integrity and prevent the tissue disorganisation that precedes metastasis.
 
-**Growth suppression and apoptosis.** "Negative regulation of cell population proliferation" (P = 2.6×10⁻³), "positive regulation of programmed cell death" (P = 4.9×10⁻²), the Hippo signalling pathway (P = 2.4×10⁻²), and TGF-β signalling (P = 3.6×10⁻²) were uniquely protective. These pathways actively halt proliferation and eliminate damaged cells.
+**Growth suppression and apoptosis.** "Negative regulation of cell population proliferation" (P = 2.6 x 10^-3), "positive regulation of programmed cell death" (P = 4.9 x 10^-2), the Hippo signalling pathway (P = 2.4 x 10^-2), and TGF-beta signalling (P = 3.6 x 10^-2) were uniquely protective. These pathways actively halt proliferation and eliminate damaged cells.
 
 In contrast, the 368 pathways uniquely enriched in risk genes centred on transcriptional regulation (RNA polymerase II transcription, chromatin binding), DNA metabolism and replication, kinase signalling cascades, and organelle organisation — the cellular machinery that cancer hijacks for uncontrolled growth (Figure 2).
 
@@ -64,7 +66,7 @@ This separation reveals that protective variants operate *upstream* of carcinoge
 
 ### Pathway distinction is robust across significance thresholds
 
-To assess robustness, we repeated the enrichment analysis at three significance thresholds (**Table 1**). The protective/risk pathway distinction held at all thresholds, with the Jaccard similarity increasing modestly at more lenient thresholds (from 0.364 at P < 5×10⁻⁸ to 0.495 at P < 5×10⁻⁶), consistent with weaker signals introducing more biological noise.
+To assess robustness, we repeated the enrichment analysis at three significance thresholds (Table 1). The protective/risk pathway distinction held at all thresholds, with the Jaccard similarity increasing modestly at more lenient thresholds (from 0.364 at P < 5 x 10^-8 to 0.495 at P < 5 x 10^-6), consistent with weaker signals introducing more biological noise.
 
 | Threshold | Protective genes | Risk genes | Jaccard |
 |-----------|-----------------|------------|---------|
@@ -82,9 +84,9 @@ To assess robustness, we repeated the enrichment analysis at three significance 
 
 To determine whether the protective/risk pathway distinction is population-specific or universal, we repeated the analysis using GWAS summary statistics from BioBank Japan (BBJ), comprising ~200,000 East Asian individuals across 7 cancer endpoints (breast, prostate, colorectal, lung, gastric, liver, renal).
 
-After filtering for significance (P < 5×10⁻⁶), we identified 301 protective genes and 412 risk genes in BBJ. Pathway enrichment analysis yielded 113 terms for protective genes and 135 for risk genes.
+After filtering for significance (P < 5 x 10^-6), we identified 301 protective genes and 412 risk genes in BBJ. Pathway enrichment analysis yielded 113 terms for protective genes and 135 for risk genes.
 
-The internal protective/risk distinction replicated in BBJ: Fisher's exact P = 4.12×10⁻⁹, Jaccard = 0.425 (**Table 2**). The finding is therefore not specific to the Finnish population or European ancestry.
+The internal protective/risk distinction replicated in BBJ: Fisher's exact P = 4.12 x 10^-9, Jaccard = 0.425 (Table 2). The finding is therefore not specific to the Finnish population or European ancestry.
 
 | Metric | FinnGen | BBJ |
 |--------|---------|-----|
@@ -104,9 +106,9 @@ The internal protective/risk distinction replicated in BBJ: Fisher's exact P = 4
 
 If protection were simply the inverse of risk, a Polygenic Protection Score (PPS) constructed from protective variants should be equivalent to an inverted PRS. We tested this by comparing the variant and gene composition of PPS and PRS constructed from the FinnGen data.
 
-At the variant level, PPS and PRS share virtually no variants (Jaccard = 0.005). At the gene level, only 21.7% of genes overlap (1,038 shared out of 2,428 PPS-unique + 2,346 PRS-unique + 1,038 shared).
+At the variant level, PPS and PRS share virtually no variants (Jaccard = 0.005). At the gene level, only 1,038 of 4,774 genes (21.7%) appear in both scores, with 1,390 genes unique to PPS and 2,346 unique to PRS.
 
-The gene-level contributions to PPS and inverted PRS are anti-correlated (Spearman ρ = −0.306, P = 7.7×10⁻¹⁰⁴), meaning genes that contribute strongly to protection rarely contribute to risk, and vice versa. This is consistent with the pathway-level finding: protective and risk variants tag fundamentally different biology.
+The gene-level contributions to PPS and inverted PRS are anti-correlated (Spearman rho = -0.306, P = 7.7 x 10^-104), meaning genes that contribute strongly to protection rarely contribute to risk, and vice versa. This is consistent with the pathway-level finding: protective and risk variants tag fundamentally different biology.
 
 ## Discussion
 
@@ -118,7 +120,7 @@ The practical implications are substantial. Current cancer risk stratification r
 
 The concentration of protective genetics in detoxification pathways is particularly notable. Cytochrome P450 enzymes and UDP-glucuronosyltransferases are pharmacologically modifiable: sulforaphane (from cruciferous vegetables) selectively induces Phase II detoxification [10], and calcium D-glucarate inhibits beta-glucuronidase to enhance glucuronidation [11]. The adherens junction and Hippo signalling pathways are modulated by exercise [12] and low-dose aspirin [13] respectively. These connections suggest that individuals with genetically weak protective pathways could benefit from targeted lifestyle or supplementation interventions — a hypothesis that warrants testing in prospective cohorts.
 
-**Limitations.** Our analysis uses summary statistics rather than individual-level data, which precludes direct PPS-PRS independence testing in the same individuals. The nearest-gene annotation used for variant-to-gene mapping is imprecise; some variants may regulate distant genes. The FinnGen and BBJ cohorts differ in ancestry, cancer endpoints, and sample sizes, which limits the precision of cross-population comparisons. The HapMap2-based test panel used for our imputation proof-of-concept is small; future work should use the TOPMed or 1000G Phase 3 panels for clinical-grade PPS calculation.
+**Limitations.** Our analysis uses summary statistics rather than individual-level data, which precludes direct testing of whether PPS predicts cancer incidence independently of PRS within the same cohort. The nearest-gene annotation used for variant-to-gene mapping is imprecise; some variants may regulate distant genes through long-range regulatory interactions. The FinnGen and BBJ cohorts differ in ancestry, cancer endpoints, and sample sizes, which limits the precision of cross-population pathway comparisons. Distance-based LD clumping is an approximation; reference-panel-based clumping would provide more precise identification of independent loci.
 
 **Future directions.** Individual-level validation in UK Biobank or All of Us would enable direct testing of whether PPS predicts cancer incidence independently of PRS after adjusting for covariates. Mendelian randomisation using protective variants as instruments could establish causal relationships between protective pathway activity and cancer risk. A prospective trial of pathway-targeted interventions in individuals with low pathway-specific PPS could test whether genetically-guided chemoprevention is feasible.
 
@@ -126,13 +128,13 @@ The concentration of protective genetics in detoxification pathways is particula
 
 ### Data sources
 
-**FinnGen Release 12.** GWAS summary statistics for 19 cancer endpoints were downloaded from the FinnGen public data repository (https://r12.finngen.fi/). All endpoints used the EXALLC phenotype definition (controls exclude all cancer diagnoses). The cohort comprises 500,348 Finnish individuals with linked electronic health records. Summary statistics include per-variant chromosome, position, reference/alternate alleles, β, standard error, P-value, and allele frequencies in cases and controls. Genome build: GRCh38.
+**FinnGen Release 12.** GWAS summary statistics for 19 cancer endpoints were downloaded from the FinnGen public data repository (https://r12.finngen.fi/). All endpoints used the EXALLC phenotype definition (controls exclude all cancer diagnoses). The cohort comprises 500,348 Finnish individuals with linked electronic health records. Summary statistics include per-variant chromosome, position, reference/alternate alleles, beta, standard error, P-value, and allele frequencies in cases and controls. Genome build: GRCh38.
 
 **BioBank Japan.** GWAS summary statistics for 7 cancer endpoints were downloaded from JENGER (http://jenger.riken.jp/). The cohort comprises approximately 200,000 Japanese individuals. Genome build: GRCh37. Gene mapping for BBJ variants used UCSC refGene annotations (GRCh37).
 
 ### Variant selection and classification
 
-Variants reaching suggestive significance (P < 5×10⁻⁶) were retained. Distance-based LD clumping with a 500 kb window was applied per cancer type, retaining the variant with the smallest P-value per locus. Variants were classified as protective (β < 0) or risk (β > 0) based on the direction of effect. Variants were mapped to genes using the nearest_genes annotation provided by FinnGen, with multi-gene entries expanded to assign each gene separately.
+Variants reaching suggestive significance (P < 5 x 10^-6) were retained. Distance-based LD clumping with a 500 kb window was applied per cancer type, retaining the variant with the smallest P-value per locus. Variants were classified as protective (beta < 0) or risk (beta > 0) based on the direction of effect. Variants were mapped to genes using the nearest_genes annotation provided by FinnGen, with multi-gene entries expanded to assign each gene separately.
 
 ### Pathway enrichment analysis
 
@@ -144,21 +146,21 @@ Three complementary statistics were used to assess whether the protective and ri
 
 **Jaccard similarity.** The overlap between enriched term sets was quantified as J = size(P ∩ R) / size(P ∪ R), where P and R are the sets of significantly enriched terms (adjusted P < 0.05) for protective and risk genes, respectively. A Jaccard index of 1.0 would indicate identical pathway profiles; 0.0 would indicate complete separation. This was computed both globally and stratified by annotation source (GO:BP, GO:MF, GO:CC, KEGG, Reactome, WikiPathways) to identify which pathway databases show the strongest divergence.
 
-**Fisher's exact test.** To assess whether pathway membership is independent of protective/risk status, we constructed a 2×2 contingency table: (a) terms enriched in both sets, (b) terms enriched in protective only, (c) terms enriched in risk only, (d) terms tested but enriched in neither. The universe of tested terms comprised all terms evaluated by g:Profiler (determined by the background gene set and annotation source coverage). Fisher's exact test was applied with a two-sided alternative. A significant result indicates that the two gene sets do not enrich the same pathways, rejecting the null hypothesis that protective enrichment is independent of risk enrichment.
+**Fisher's exact test.** To assess whether pathway membership is independent of protective/risk status, we constructed a 2x2 contingency table: (a) terms enriched in both sets, (b) terms enriched in protective only, (c) terms enriched in risk only, (d) terms tested but enriched in neither. The universe of tested terms comprised all terms evaluated by g:Profiler (determined by the background gene set and annotation source coverage). Fisher's exact test was applied with a two-sided alternative. A significant result indicates that the two gene sets do not enrich the same pathways, rejecting the null hypothesis that protective enrichment is independent of risk enrichment.
 
-**Spearman rank correlation.** For terms significantly enriched in both sets (the shared terms), we computed Spearman's rank correlation on −log₁₀(P-value) between the protective and risk enrichment results. A strong positive correlation would indicate that shared pathways are similarly significant in both sets (consistent with core cancer biology appearing in both directions); a weak or negative correlation would suggest that even shared terms behave differently in the two gene sets.
+**Spearman rank correlation.** For terms significantly enriched in both sets (the shared terms), we computed Spearman's rank correlation on -log10(P-value) between the protective and risk enrichment results. A strong positive correlation would indicate that shared pathways are similarly significant in both sets (consistent with core cancer biology appearing in both directions); a weak or negative correlation would suggest that even shared terms behave differently in the two gene sets.
 
 ### Polygenic Protection Score construction and comparison with PRS
 
 To test whether a score constructed from protective variants captures the same genetic information as an inverted standard Polygenic Risk Score, we constructed both scores from the FinnGen summary statistics and compared their composition at the variant and gene levels.
 
-**PPS construction.** For each LD-clumped protective variant (β < 0, P < 5×10⁻⁶), we assigned a weight equal to the absolute value of β. Variants were mapped to genes using the FinnGen nearest-gene annotation. The PPS for an individual is the sum of weights multiplied by the dosage (0, 1, or 2 copies) of the protective allele at each locus.
+**PPS construction.** For each LD-clumped protective variant (beta < 0, P < 5 x 10^-6), we assigned a weight equal to the absolute value of beta. Variants were mapped to genes using the FinnGen nearest-gene annotation. The PPS for an individual is the sum of weights multiplied by the dosage (0, 1, or 2 copies) of the protective allele at each locus.
 
-**PRS construction.** For each LD-clumped risk variant (β > 0, P < 5×10⁻⁶), we assigned a weight equal to β. These weights correspond to the risk-increasing effect of the alternate allele.
+**PRS construction.** For each LD-clumped risk variant (beta > 0, P < 5 x 10^-6), we assigned a weight equal to beta. These weights correspond to the risk-increasing effect of the alternate allele.
 
 **Variant-level comparison.** We computed the Jaccard similarity between the set of rsIDs contributing to PPS and those contributing to PRS. Under the null hypothesis that protection is simply the inverse of risk, the same variants should appear in both scores (with opposite signs), yielding a Jaccard near 1.0.
 
-**Gene-level comparison.** Each gene was assigned a total PPS contribution (sum of absolute β values across all protective variants mapped to that gene) and a total inverted-PRS contribution (sum of absolute β values across all risk variants mapped to that gene). Jaccard similarity was computed between the gene sets with non-zero PPS weight and non-zero PRS weight. Spearman rank correlation was computed between the two weight vectors across all genes with non-zero weight in at least one score. A strong positive correlation would indicate that the same genes drive both scores; a weak, zero, or negative correlation would indicate that PPS and inverted PRS capture distinct genetic signals.
+**Gene-level comparison.** Each gene was assigned a total PPS contribution (sum of absolute beta values across all protective variants mapped to that gene) and a total inverted-PRS contribution (sum of absolute beta values across all risk variants mapped to that gene). Jaccard similarity was computed between the gene sets with non-zero PPS weight and non-zero PRS weight. Spearman rank correlation was computed between the two weight vectors across all genes with non-zero weight in at least one score. A strong positive correlation would indicate that the same genes drive both scores; a weak, zero, or negative correlation would indicate that PPS and inverted PRS capture distinct genetic signals.
 
 ### Cross-population replication
 
