@@ -1,0 +1,28 @@
+# Raw data caches (large, reproducibly downloadable)
+data/raw/finngen_cache/
+data/raw/bbj_cache/
+data/raw/test_genomes/
+data/raw/imputation/
+
+# Processed data (regenerable from pipeline)
+data/processed/
+
+# GRCh37 gene annotations (downloadable)
+data/raw/grch37_genes.csv
+
+# Imputation server
+output/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Nextflow
+.nextflow/
+.nextflow.log*
+work/
+
+# OS
+.DS_Store
