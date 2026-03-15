@@ -135,9 +135,7 @@
 <p></p>
 <p>Three complementary statistics were used to assess whether the protective and risk gene sets enrich for distinct or overlapping biological pathways.</p>
 <p></p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; margin: 10px 0;">
-<tr><th style="background:#f0f0f0; padding: 6px;">P ∩ R</th><th style="background:#f0f0f0; padding: 6px;">/</th><th style="background:#f0f0f0; padding: 6px;">P ∪ R</th></tr>
-</table>
+<p><strong>Jaccard similarity.</strong> The overlap between enriched term sets was quantified as J = size(P ∩ R) / size(P ∪ R), where P and R are the sets of significantly enriched terms (adjusted P < 0.05) for protective and risk genes, respectively. A Jaccard index of 1.0 would indicate identical pathway profiles; 0.0 would indicate complete separation. This was computed both globally and stratified by annotation source (GO:BP, GO:MF, GO:CC, KEGG, Reactome, WikiPathways) to identify which pathway databases show the strongest divergence.</p>
 <p></p>
 <p><strong>Fisher's exact test.</strong> To assess whether pathway membership is independent of protective/risk status, we constructed a 2×2 contingency table: (a) terms enriched in both sets, (b) terms enriched in protective only, (c) terms enriched in risk only, (d) terms tested but enriched in neither. The universe of tested terms comprised all terms evaluated by g:Profiler (determined by the background gene set and annotation source coverage). Fisher's exact test was applied with a two-sided alternative. A significant result indicates that the two gene sets do not enrich the same pathways, rejecting the null hypothesis that protective enrichment is independent of risk enrichment.</p>
 <p></p>
@@ -147,17 +145,13 @@
 <p></p>
 <p>To test whether a score constructed from protective variants captures the same genetic information as an inverted standard Polygenic Risk Score, we constructed both scores from the FinnGen summary statistics and compared their composition at the variant and gene levels.</p>
 <p></p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; margin: 10px 0;">
-<tr><th style="background:#f0f0f0; padding: 6px;">β</th></tr>
-</table>
+<p><strong>PPS construction.</strong> For each LD-clumped protective variant (β < 0, P < 5×10⁻⁶), we assigned a weight equal to the absolute value of β. Variants were mapped to genes using the FinnGen nearest-gene annotation. The PPS for an individual is the sum of weights multiplied by the dosage (0, 1, or 2 copies) of the protective allele at each locus.</p>
 <p></p>
 <p><strong>PRS construction.</strong> For each LD-clumped risk variant (β > 0, P < 5×10⁻⁶), we assigned a weight equal to β. These weights correspond to the risk-increasing effect of the alternate allele.</p>
 <p></p>
 <p><strong>Variant-level comparison.</strong> We computed the Jaccard similarity between the set of rsIDs contributing to PPS and those contributing to PRS. Under the null hypothesis that protection is simply the inverse of risk, the same variants should appear in both scores (with opposite signs), yielding a Jaccard near 1.0.</p>
 <p></p>
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; margin: 10px 0;">
-<tr><th style="background:#f0f0f0; padding: 6px;">β</th><th style="background:#f0f0f0; padding: 6px;">across all protective variants mapped to that gene) and a total inverted-PRS contribution (sum of</th><th style="background:#f0f0f0; padding: 6px;">β</th></tr>
-</table>
+<p><strong>Gene-level comparison.</strong> Each gene was assigned a total PPS contribution (sum of absolute β values across all protective variants mapped to that gene) and a total inverted-PRS contribution (sum of absolute β values across all risk variants mapped to that gene). Jaccard similarity was computed between the gene sets with non-zero PPS weight and non-zero PRS weight. Spearman rank correlation was computed between the two weight vectors across all genes with non-zero weight in at least one score. A strong positive correlation would indicate that the same genes drive both scores; a weak, zero, or negative correlation would indicate that PPS and inverted PRS capture distinct genetic signals.</p>
 <p></p>
 <p><h3>Cross-population replication</h3></p>
 <p></p>
