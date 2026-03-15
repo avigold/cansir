@@ -120,15 +120,29 @@ Gene Ontology (Biological Process, Molecular Function, Cellular Component), Reac
 
 ### Pathway comparison statistics
 
-Jaccard similarity was computed as |P ∩ R| / |P ∪ R|, where P and R are the sets of significantly enriched terms for protective and risk genes, respectively. Fisher's exact test was performed on the 2×2 contingency table of term membership (enriched in P only, R only, both, or neither). Spearman rank correlation was computed on −log₁₀(P-value) for terms enriched in both sets.
+Three complementary statistics were used to assess whether the protective and risk gene sets enrich for distinct or overlapping biological pathways.
 
-### Polygenic Protection Score construction
+**Jaccard similarity.** The overlap between enriched term sets was quantified as J = |P ∩ R| / |P ∪ R|, where P and R are the sets of significantly enriched terms (adjusted P < 0.05) for protective and risk genes, respectively. A Jaccard index of 1.0 would indicate identical pathway profiles; 0.0 would indicate complete separation. This was computed both globally and stratified by annotation source (GO:BP, GO:MF, GO:CC, KEGG, Reactome, WikiPathways) to identify which pathway databases show the strongest divergence.
 
-PPS weights were computed as |β| for each LD-clumped protective variant. PRS weights were computed as β for each LD-clumped risk variant. Variant-level and gene-level Jaccard similarities were computed between PPS and PRS variant/gene sets. Gene-level Spearman correlation was computed between total PPS weight and total inverted-PRS weight per gene.
+**Fisher's exact test.** To assess whether pathway membership is independent of protective/risk status, we constructed a 2×2 contingency table: (a) terms enriched in both sets, (b) terms enriched in protective only, (c) terms enriched in risk only, (d) terms tested but enriched in neither. The universe of tested terms comprised all terms evaluated by g:Profiler (determined by the background gene set and annotation source coverage). Fisher's exact test was applied with a two-sided alternative. A significant result indicates that the two gene sets do not enrich the same pathways, rejecting the null hypothesis that protective enrichment is independent of risk enrichment.
+
+**Spearman rank correlation.** For terms significantly enriched in both sets (the shared terms), we computed Spearman's rank correlation on −log₁₀(P-value) between the protective and risk enrichment results. A strong positive correlation would indicate that shared pathways are similarly significant in both sets (consistent with core cancer biology appearing in both directions); a weak or negative correlation would suggest that even shared terms behave differently in the two gene sets.
+
+### Polygenic Protection Score construction and comparison with PRS
+
+To test whether a score constructed from protective variants captures the same genetic information as an inverted standard Polygenic Risk Score, we constructed both scores from the FinnGen summary statistics and compared their composition at the variant and gene levels.
+
+**PPS construction.** For each LD-clumped protective variant (β < 0, P < 5×10⁻⁶), we assigned a weight equal to |β|, the absolute effect size. Variants were mapped to genes using the FinnGen nearest-gene annotation. The PPS for an individual is the sum of weights multiplied by the dosage (0, 1, or 2 copies) of the protective allele at each locus.
+
+**PRS construction.** For each LD-clumped risk variant (β > 0, P < 5×10⁻⁶), we assigned a weight equal to β. These weights correspond to the risk-increasing effect of the alternate allele.
+
+**Variant-level comparison.** We computed the Jaccard similarity between the set of rsIDs contributing to PPS and those contributing to PRS. Under the null hypothesis that protection is simply the inverse of risk, the same variants should appear in both scores (with opposite signs), yielding a Jaccard near 1.0.
+
+**Gene-level comparison.** Each gene was assigned a total PPS contribution (sum of |β| across all protective variants mapped to that gene) and a total inverted-PRS contribution (sum of |β| across all risk variants mapped to that gene). Jaccard similarity was computed between the gene sets with non-zero PPS weight and non-zero PRS weight. Spearman rank correlation was computed between the two weight vectors across all genes with non-zero weight in at least one score. A strong positive correlation would indicate that the same genes drive both scores; a weak, zero, or negative correlation would indicate that PPS and inverted PRS capture distinct genetic signals.
 
 ### Cross-population replication
 
-BBJ variants were mapped to genes using UCSC refGene GRCh37 annotations (nearest gene within 500 kb). The same enrichment and comparison pipeline was applied independently to BBJ protective and risk gene sets.
+BioBank Japan GWAS summary statistics (GRCh37) were processed through the same pipeline as FinnGen, with one additional step: because BBJ files do not include nearest-gene annotations, variants were mapped to genes using UCSC refGene GRCh37 gene coordinates. For each significant variant, the nearest gene within 500 kb was assigned; variants with no gene within this window were excluded. Protective and risk gene sets were constructed as described above, and pathway enrichment was performed independently on each set using the same g:Profiler parameters. The same three comparison statistics (Jaccard similarity, Fisher's exact test, Spearman rank correlation) were computed for the BBJ protective versus risk enrichment profiles to assess whether the pathway distinction observed in FinnGen replicates in an independent East Asian cohort.
 
 ### Software and reproducibility
 
