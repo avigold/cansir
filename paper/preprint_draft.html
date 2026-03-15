@@ -10,6 +10,7 @@
     table { font-size: 10pt; }
     p { margin: 6pt 0; }
     img { max-width: 100%; }
+    sup { font-size: 8pt; }
 </style></head><body><h1>The genetic architecture of cancer protection is biologically distinct from cancer risk: a pan-cancer pathway enrichment analysis</h1>
 <p></p>
 <strong>Avram Score</strong>
@@ -20,11 +21,11 @@
 <p></p>
 <h2>Introduction</h2>
 <p></p>
-<p>Genome-wide association studies (GWAS) have identified thousands of genetic variants associated with cancer susceptibility across dozens of cancer types¹². Pan-cancer analyses have revealed shared genetic architecture across cancers, identifying pleiotropic risk loci and common biological pathways³⁴. However, these studies have overwhelmingly focused on risk-increasing variants, with protective variants — those associated with reduced cancer incidence — receiving comparatively little systematic attention.</p>
+<p>Genome-wide association studies (GWAS) have identified thousands of genetic variants associated with cancer susceptibility across dozens of cancer types <sup>1,2</sup>. Pan-cancer analyses have revealed shared genetic architecture across cancers, identifying pleiotropic risk loci and common biological pathways <sup>3,4</sup>. However, these studies have overwhelmingly focused on risk-increasing variants, with protective variants — those associated with reduced cancer incidence — receiving comparatively little systematic attention.</p>
 <p></p>
 <p>The implicit assumption in current polygenic risk modelling is that genetic protection against cancer is simply the absence of genetic risk. Under this model, an individual's Polygenic Risk Score (PRS) captures the full spectrum of genetic predisposition, with low PRS indicating protection. This assumption has never been formally tested at the pathway level across multiple cancer types.</p>
 <p></p>
-<p>In other disease domains, this assumption has been challenged. Hess et al. demonstrated that polygenic resilience to schizophrenia operates through genetic variants that are "risk-orthogonal" — completely independent of and uncorrelated with risk variants⁵⁶. Similar risk-orthogonal resilience architectures have been identified in Alzheimer's disease⁷⁸. In a prescient commentary, Klein argued that cancer resistance genetics should be studied "on its own merits and not merely as a mirror image of cancer susceptibility"⁹.</p>
+<p>In other disease domains, this assumption has been challenged. Hess et al. demonstrated that polygenic resilience to schizophrenia operates through genetic variants that are "risk-orthogonal" — completely independent of and uncorrelated with risk variants <sup>5,6</sup>. Similar risk-orthogonal resilience architectures have been identified in Alzheimer's disease <sup>7,8</sup>. In a prescient commentary, Klein argued that cancer resistance genetics should be studied "on its own merits and not merely as a mirror image of cancer susceptibility" <sup>9</sup>.</p>
 <p></p>
 <p>Here we test whether cancer-protective and cancer-risk genetic variants enrich for distinct biological pathways, using publicly available GWAS summary statistics from two large biobanks spanning European and East Asian ancestries. We introduce the concept of a Polygenic Protection Score (PPS) for cancer and demonstrate that it captures genetic variation largely independent of standard PRS.</p>
 <p></p>
@@ -81,9 +82,9 @@
 <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; margin: 10px 0; font-size: 10pt;">
 <tr><th style="background:#f0f0f0; padding: 6px;">Threshold</th><th style="background:#f0f0f0; padding: 6px;">Protective genes</th><th style="background:#f0f0f0; padding: 6px;">Risk genes</th><th style="background:#f0f0f0; padding: 6px;">Jaccard</th></tr>
 </table>
-<p>| P < 5×10⁻⁸ | 955 | 1,345 | 0.364 |</p>
-<p>| P < 5×10⁻⁷ | 1,383 | 1,862 | 0.421 |</p>
-<p>| P < 5×10⁻⁶ | 2,428 | 3,384 | 0.495 |</p>
+<p>| P < 5e-8 | 955 | 1,345 | 0.364 |</p>
+<p>| P < 5e-7 | 1,383 | 1,862 | 0.421 |</p>
+<p>| P < 5e-6 | 2,428 | 3,384 | 0.495 |</p>
 <p></p>
 <strong>Table 1.</strong> Pathway enrichment overlap across significance thresholds. The protective/risk distinction is strongest at genome-wide significance and remains significant at all thresholds tested.
 <p></p>
@@ -101,11 +102,11 @@
 <p></p>
 <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; margin: 10px 0; font-size: 10pt;">
 <tr><th style="background:#f0f0f0; padding: 6px;">Metric</th><th style="background:#f0f0f0; padding: 6px;">FinnGen</th><th style="background:#f0f0f0; padding: 6px;">BBJ</th></tr>
-<tr><td style="padding: 6px;">Fisher's exact P</td><td style="padding: 6px;">8.57×10⁻²⁴</td><td style="padding: 6px;">4.12×10⁻⁹</td></tr>
+<tr><td style="padding: 6px;">Fisher's exact P</td><td style="padding: 6px;">8.57e-24</td><td style="padding: 6px;">4.12e-9</td></tr>
 <tr><td style="padding: 6px;">Jaccard similarity</td><td style="padding: 6px;">0.320</td><td style="padding: 6px;">0.425</td></tr>
-<tr><td style="padding: 6px;">Protective-only pathways</td><td style="padding: 6px;">55</td><td style="padding: 6px;">—</td></tr>
-<tr><td style="padding: 6px;">Risk-only pathways</td><td style="padding: 6px;">368</td><td style="padding: 6px;">—</td></tr>
-<tr><td style="padding: 6px;">Shared pathways</td><td style="padding: 6px;">199</td><td style="padding: 6px;">—</td></tr>
+<tr><td style="padding: 6px;">Protective-only pathways</td><td style="padding: 6px;">55</td><td style="padding: 6px;">39</td></tr>
+<tr><td style="padding: 6px;">Risk-only pathways</td><td style="padding: 6px;">368</td><td style="padding: 6px;">61</td></tr>
+<tr><td style="padding: 6px;">Shared pathways</td><td style="padding: 6px;">199</td><td style="padding: 6px;">74</td></tr>
 </table>
 <p></p>
 <strong>Table 2.</strong> Pathway enrichment comparison in FinnGen and BioBank Japan. Both cohorts show significant distinction between protective and risk pathway profiles.
@@ -126,11 +127,11 @@
 <p></p>
 <p>We demonstrate that the genetic architecture of cancer protection is biologically distinct from cancer risk. Protective variants concentrate in xenobiotic detoxification, cell adhesion, and apoptotic pathways — mechanisms that prevent cancer from initiating — while risk variants concentrate in transcriptional, replicative, and signalling pathways — mechanisms that cancer exploits for progression. This distinction holds across 19 cancer types in a European cohort and replicates in an independent East Asian cohort.</p>
 <p></p>
-<p>Our findings extend the "risk-orthogonal resilience" framework, previously demonstrated in schizophrenia⁵⁶ and Alzheimer's disease⁷⁸, to cancer for the first time. While Klein⁹ argued conceptually that cancer resistance should be studied independently from susceptibility, we provide the first systematic, pathway-level evidence supporting this view across multiple cancer types and populations.</p>
+<p>Our findings extend the "risk-orthogonal resilience" framework, previously demonstrated in schizophrenia <sup>5,6</sup> and Alzheimer's disease <sup>7,8</sup>, to cancer for the first time. While Klein <sup>9</sup> argued conceptually that cancer resistance should be studied independently from susceptibility, we provide the first systematic, pathway-level evidence supporting this view across multiple cancer types and populations.</p>
 <p></p>
 <p>The practical implications are substantial. Current cancer risk stratification relies exclusively on PRS, which models risk and protection as a single axis. Our results suggest this captures only part of the genetic picture. A Polygenic Protection Score that independently quantifies protective genetic architecture could improve risk stratification, particularly for identifying individuals at the extremes: those with high PRS but also high PPS ("resilient" individuals) and those with low PRS but also low PPS (at higher risk than PRS alone suggests).</p>
 <p></p>
-<p>The concentration of protective genetics in detoxification pathways is particularly notable. Cytochrome P450 enzymes and UDP-glucuronosyltransferases are pharmacologically modifiable: sulforaphane (from cruciferous vegetables) selectively induces Phase II detoxification¹⁰, and calcium D-glucarate inhibits β-glucuronidase to enhance glucuronidation¹¹. The adherens junction and Hippo signalling pathways are modulated by exercise¹² and low-dose aspirin¹³ respectively. These connections suggest that individuals with genetically weak protective pathways could benefit from targeted lifestyle or supplementation interventions — a hypothesis that warrants testing in prospective cohorts.</p>
+<p>The concentration of protective genetics in detoxification pathways is particularly notable. Cytochrome P450 enzymes and UDP-glucuronosyltransferases are pharmacologically modifiable: sulforaphane (from cruciferous vegetables) selectively induces Phase II detoxification <sup>10</sup>, and calcium D-glucarate inhibits beta-glucuronidase to enhance glucuronidation <sup>11</sup>. The adherens junction and Hippo signalling pathways are modulated by exercise <sup>12</sup> and low-dose aspirin <sup>13</sup> respectively. These connections suggest that individuals with genetically weak protective pathways could benefit from targeted lifestyle or supplementation interventions — a hypothesis that warrants testing in prospective cohorts.</p>
 <p></p>
 <strong>Limitations.</strong> Our analysis uses summary statistics rather than individual-level data, which precludes direct PPS-PRS independence testing in the same individuals. The nearest-gene annotation used for variant-to-gene mapping is imprecise; some variants may regulate distant genes. The FinnGen and BBJ cohorts differ in ancestry, cancer endpoints, and sample sizes, which limits the precision of cross-population comparisons. The HapMap2-based test panel used for our imputation proof-of-concept is small; future work should use the TOPMed or 1000G Phase 3 panels for clinical-grade PPS calculation.
 <p></p>
