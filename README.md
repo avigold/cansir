@@ -75,9 +75,11 @@ paper/
 - **BioBank Japan**: http://jenger.riken.jp/ (public, no application required)
 - **Drug-gene interactions**: DGIdb GraphQL API (https://dgidb.org/)
 
-## Citation
+## Citing this work
 
-Score, A. (2026). The genetic architecture of cancer protection is biologically distinct from cancer risk: a pan-cancer pathway enrichment analysis. Zenodo. https://doi.org/10.5281/zenodo.19055872
+If you use this pipeline or build on these findings, please cite:
+
+> Score, A. (2026). The genetic architecture of cancer protection is biologically distinct from cancer risk: a pan-cancer pathway enrichment analysis. Zenodo. https://doi.org/10.5281/zenodo.19055872
 
 ## Licence
 
