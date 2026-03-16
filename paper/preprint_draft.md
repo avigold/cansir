@@ -179,14 +179,14 @@ FinnGen Release 12 summary statistics are publicly available at https://r12.finn
 1. Sud, A., Kinnersley, B. & Houlston, R. S. Genome-wide association studies of cancer: current insights and future perspectives. *Nat. Rev. Cancer* **17**, 692–704 (2017).
 2. Michailidou, K. et al. Association analysis identifies 65 new breast cancer risk loci. *Nature* **551**, 92–94 (2017).
 3. Rashkin, S. R. et al. Pan-cancer study detects genetic risk variants and shared genetic basis in two large cohorts. *Nat. Commun.* **11**, 4423 (2020).
-4. Sato, Y. et al. Pan-cancer and cross-population genome-wide association studies dissect shared genetic backgrounds underlying carcinogenesis. *Nat. Commun.* **14**, 3483 (2023).
+4. Sato, G. et al. Pan-cancer and cross-population genome-wide association studies dissect shared genetic backgrounds underlying carcinogenesis. *Nat. Commun.* **14**, 3671 (2023).
 5. Hess, J. L. et al. A polygenic resilience score moderates the genetic risk for schizophrenia. *Mol. Psychiatry* **26**, 800–815 (2021).
 6. Hess, J. L. et al. Polygenic resilience scores are associated with lower penetrance of schizophrenia risk genes. *Schizophr. Bull.* (2025).
-7. Durand, A. et al. Polygenic resilience scores capture protective genetic effects for Alzheimer's disease. *Transl. Psychiatry* **12**, 296 (2022).
-8. Neuner, S. M. et al. Genetic variants and functional pathways associated with resilience to Alzheimer's disease. *Brain* **143**, 2561–2575 (2020).
+7. Hou, J. et al. Polygenic resilience scores capture protective genetic effects for Alzheimer's disease. *Transl. Psychiatry* **12**, 296 (2022).
+8. Dumitrescu, L. et al. Genetic variants and functional pathways associated with resilience to Alzheimer's disease. *Brain* **143**, 2561–2575 (2020).
 9. Klein, G. Toward a genetics of cancer resistance. *Proc. Natl Acad. Sci. USA* **106**, 859–863 (2009).
 10. Hodges, R. E. & Minich, D. M. Modulation of metabolic detoxification pathways using foods and food-derived components. *J. Nutr. Metab.* **2015**, 760689 (2015).
-11. Walaszek, Z. et al. Potential use of D-glucaric acid derivatives in cancer prevention. *Cancer Lett.* **54**, 1–8 (1990).
+11. Walaszek, Z. Potential use of D-glucaric acid derivatives in cancer prevention. *Cancer Lett.* **54**, 1–8 (1990).
 12. Dethlefsen, C. et al. Exercise-induced catecholamines activate the Hippo tumor suppressor pathway to reduce risks of breast cancer development. *Cancer Res.* **77**, 4894–4904 (2017).
 13. Drew, D. A., Cao, Y. & Chan, A. T. Aspirin and colorectal cancer: the promise of precision chemoprevention. *Nat. Rev. Cancer* **16**, 173–186 (2016).
 
