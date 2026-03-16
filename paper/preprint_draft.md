@@ -40,7 +40,7 @@ The protective gene set yielded 254 significantly enriched terms; the risk gene 
 
 Fisher's exact test on the 2x2 contingency table of pathway membership (enriched in protective / enriched in risk / enriched in both / enriched in neither) yielded P = 8.57 x 10^-24, demonstrating that the two gene sets enrich for distinct, non-overlapping pathway profiles.
 
-The Jaccard similarity between the two enriched term sets was 0.320, indicating that approximately two-thirds of enriched pathways are unique to one set or the other. For terms enriched in both sets, the Spearman rank correlation of enrichment P-values was rho = 0.709 (P = 1.01 x 10^-31), indicating that shared pathways (primarily core cancer biology such as cell cycle regulation and DNA damage response) show consistent significance in both directions.
+The Jaccard similarity between the two enriched term sets was 0.320, indicating that approximately two-thirds of enriched pathways are unique to one set or the other. For terms enriched in both sets, the Spearman rank correlation of enrichment P-values was ρ = 0.709 (P = 1.01 x 10^-31), indicating that shared pathways (primarily core cancer biology such as cell cycle regulation and DNA damage response) show consistent significance in both directions.
 
 ### The biology of cancer protection is distinct from cancer risk
 
