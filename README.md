@@ -1,6 +1,10 @@
 # CANSIR: Cancer-Protective Gene Discovery
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19055872.svg)](https://doi.org/10.5281/zenodo.19055872)
+
 Analysis pipeline for the paper: **"The genetic architecture of cancer protection is biologically distinct from cancer risk: a pan-cancer pathway enrichment analysis"**
+
+**Preprint:** [doi.org/10.5281/zenodo.19055872](https://doi.org/10.5281/zenodo.19055872)
 
 ## Key finding
 
@@ -73,7 +77,7 @@ paper/
 
 ## Citation
 
-Preprint forthcoming on bioRxiv.
+Score, A. (2026). The genetic architecture of cancer protection is biologically distinct from cancer risk: a pan-cancer pathway enrichment analysis. Zenodo. https://doi.org/10.5281/zenodo.19055872
 
 ## Licence
 
