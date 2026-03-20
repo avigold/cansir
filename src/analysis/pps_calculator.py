@@ -592,29 +592,58 @@ def generate_html_report(results: dict, output_path: str = "data/processed/pps_r
         if len(scores.get("genes_matched", [])) > 8:
             genes += f" (+{len(scores['genes_matched']) - 8} more)"
 
+        confidence = "High" if scores['n_variants'] >= 10 else "Moderate" if scores['n_variants'] >= 5 else "Low"
+        conf_color = "#27ae60" if confidence == "High" else "#f39c12" if confidence == "Moderate" else "#95a5a6"
+        conf_note = "" if confidence == "High" else f' <span style="color: {conf_color}; font-size: 11px;">({confidence} confidence &mdash; based on {scores["n_variants"]} variant{"s" if scores["n_variants"] != 1 else ""})</span>'
+
         pathway_bars += f"""
         <div class="pathway">
-            <div class="pathway-name">{pathway} <span class="n-variants">({scores['n_variants']} variants)</span></div>
+            <div class="pathway-name">{pathway}{conf_note}</div>
             <div class="bar-container">
-                <div class="bar" style="width: {pctl}%; background: {color};">{pctl:.0f}%</div>
+                <div class="bar" style="width: {max(pctl, 3)}%; background: {color};">{pctl:.0f}%</div>
             </div>
             <div class="genes">Genes: {genes}</div>
             <div class="intervention">Suggested: {intervention}</div>
         </div>"""
 
-    top_variants = ""
-    for v in results["top_contributors"][:15]:
+    # Separate rare protective variants (positive deviation, low AF) from general table
+    rare_variants_html = ""
+    general_variants_html = ""
+    for v in results["top_contributors"][:20]:
         dose = "HOM" if v["dosage"] == 2 else "HET" if v["dosage"] == 1 else "REF"
         dev = v.get("deviation", 0)
-        top_variants += f"""
-        <tr>
-            <td>{v['rsid']}</td>
-            <td>{v.get('gene', '')}</td>
-            <td>{dose}</td>
-            <td>{v['weight']:.3f}</td>
-            <td>{v['score_contribution']:.3f}</td>
-            <td>{v.get('cancer_type', '')}</td>
-        </tr>"""
+        af = v.get("expected_dosage", 0) / 2  # expected_dosage = 2*AF
+        pop_pct = af * 100
+
+        if dev > 0 and v["dosage"] > 0 and af < 0.1:
+            # Rare protective variant the person carries
+            rarity = "extremely rare" if af < 0.01 else "rare" if af < 0.05 else "uncommon"
+            pop_has = f"{pop_pct:.1f}%" if pop_pct >= 0.1 else f"<0.1%"
+            cancer = v.get('cancer_type', '').replace('_', ' ')
+            rare_variants_html += f"""
+            <div class="rare-variant">
+                <div class="rare-variant-header">
+                    <span class="rare-badge">{rarity.upper()}</span>
+                    <strong>{v.get('gene', '')}</strong> &mdash; {v['rsid']}
+                </div>
+                <div class="rare-variant-detail">
+                    You carry {"two copies" if v["dosage"] == 2 else "one copy"} of this {rarity} protective variant.
+                    Only {pop_has} of the population carries it.
+                    Associated with protection against <strong>{cancer}</strong> cancer.
+                    Effect strength: {v['weight']:.2f}
+                </div>
+            </div>"""
+        else:
+            general_variants_html += f"""
+            <tr>
+                <td>{v['rsid']}</td>
+                <td>{v.get('gene', '')}</td>
+                <td>{dose}</td>
+                <td>{dev:+.2f}</td>
+                <td>{v['weight']:.3f}</td>
+                <td>{v.get('cancer_type', '')}</td>
+            </tr>"""
+    top_variants = general_variants_html
 
     overall_pct = results["population_percentile"]
     overall_color = "#e74c3c" if overall_pct < 25 else "#f39c12" if overall_pct < 50 else "#27ae60"
@@ -653,6 +682,16 @@ def generate_html_report(results: dict, output_path: str = "data/processed/pps_r
     th {{ background: #34495e; color: white; padding: 10px; text-align: left; font-size: 13px; }}
     td {{ padding: 8px 10px; border-bottom: 1px solid #ecf0f1; font-size: 13px; }}
     tr:hover {{ background: #f8f9fa; }}
+    .rare-section {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                    border-radius: 12px; padding: 25px; margin: 20px 0; color: white; }}
+    .rare-section h2 {{ color: #f0c040; border-bottom: 2px solid #f0c040; margin-top: 0; }}
+    .rare-variant {{ background: rgba(255,255,255,0.08); border-radius: 8px; padding: 15px;
+                    margin: 12px 0; border-left: 4px solid #f0c040; }}
+    .rare-variant-header {{ font-size: 15px; margin-bottom: 6px; }}
+    .rare-badge {{ background: #f0c040; color: #1a1a2e; padding: 2px 8px; border-radius: 4px;
+                  font-size: 10px; font-weight: bold; margin-right: 8px; letter-spacing: 1px; }}
+    .rare-variant-detail {{ font-size: 13px; color: #ccc; line-height: 1.5; }}
+    .rare-variant-detail strong {{ color: #f0c040; }}
     .warning {{ background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px;
                padding: 15px; margin: 15px 0; }}
     .footer {{ text-align: center; color: #999; font-size: 12px; margin-top: 40px;
@@ -697,9 +736,16 @@ Lower percentiles indicate weaker genetic protection in that pathway.</p>
     This is not medical advice. Consult a healthcare professional before making changes.
 </div>
 
-<h2>Top Contributing Variants</h2>
+{f'''<div class="rare-section">
+<h2>Your Rare Protective Variants</h2>
+<p style="color: #aaa; margin-top: -10px;">These are uncommon genetic variants you carry that most people don't.
+Each one contributes disproportionately to your cancer protection profile.</p>
+{rare_variants_html}
+</div>''' if rare_variants_html else ''}
+
+<h2>All Contributing Variants</h2>
 <table>
-<tr><th>Variant</th><th>Gene</th><th>Genotype</th><th>Weight</th><th>Contribution</th><th>Cancer Type</th></tr>
+<tr><th>Variant</th><th>Gene</th><th>Genotype</th><th>Deviation</th><th>Weight</th><th>Cancer Type</th></tr>
 {top_variants}
 </table>
 

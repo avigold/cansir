@@ -3,14 +3,20 @@ data/raw/finngen_cache/
 data/raw/bbj_cache/
 data/raw/test_genomes/
 data/raw/imputation/
+data/raw/imputation_kelsey/
 
-# Processed data (regenerable from pipeline)
-data/processed/
+# Raw summary stats (regenerable from pipeline)
+data/raw/finngen_significant_variants.csv
+data/raw/bbj_significant_variants.csv
+data/raw/background_genes.txt
 
 # GRCh37 gene annotations (downloadable)
 data/raw/grch37_genes.csv
 
-# Imputation server
+# Processed data (regenerable from pipeline)
+data/processed/
+
+# Imputation server and reference panels
 output/
 
 # Python
@@ -26,3 +32,6 @@ work/
 
 # OS
 .DS_Store
+
+# Correspondence (private)
+**/correspondence/
